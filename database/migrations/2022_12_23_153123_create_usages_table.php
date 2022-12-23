@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('usages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->boolean('is_admin')->default(0);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->foreignId('statuses_id')->constrained('statuses','id')->cascadeOnDelete();
+            $table->foreignId('users_id')->constrained('users','id')->cascadeOnDelete();
+            $table->foreignId('devices_id')->constrained('devices','id')->cascadeOnDelete();
+            $table->integer('days');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('usages');
     }
 };

@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
         Ширина колеи, мм: 1880.'];
         $numbers = [5, 2, 3, 3, 1, 2];
         // Добавить картинки
-        $images = ['side2.jpeg', 'crimea_is_our2.jpg', 'shesh1.jpg', 'adler1.jpg', 'rome1.jpg', 'bangkok.jpg'];
+        $images = ['mixer.jpg', 'lift.jpg', 'truck.jpg', 'excavator.jpeg', 'staker.jpeg', 'bulldozer.jpg'];
         for ($i = 0; $i <  count($deviceNames); $i++){
             Device::create([
                 'name' => $deviceNames[$i],

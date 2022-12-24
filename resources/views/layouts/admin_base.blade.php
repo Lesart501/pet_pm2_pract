@@ -20,7 +20,7 @@
                 <div class="text-end">
                     <form action="{{ route('logout') }}" method="POST" class="form-inline">
                         @csrf
-                        <input type="submit" class="btn btn-primary" value="Выйти">
+                        <input type="submit" class="btn btn-dark" value="Выйти">
                     </form>
                 </div>
             </div>

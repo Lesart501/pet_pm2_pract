@@ -67,7 +67,6 @@ class DatabaseSeeder extends Seeder
         Ширина башмака, мм: 510.
         Ширина колеи, мм: 1880.'];
         $numbers = [5, 2, 3, 3, 1, 2];
-        // Добавить картинки
         $images = ['mixer.jpg', 'lift.jpg', 'truck.jpg', 'excavator.jpeg', 'staker.jpeg', 'bulldozer.jpg'];
         for ($i = 0; $i <  count($deviceNames); $i++){
             Device::create([
@@ -81,12 +80,14 @@ class DatabaseSeeder extends Seeder
         
         $users_id = [2, 3, 4, 5, 6, 7];
         $devices_id = [6, 3, 2, 1, 5, 4];
+        $number = [2, 2, 1, 4, 1, 2];
         $days = [5, 2, 3, 3, 1, 2];
         for ($i = 0; $i < count($users_id); $i++){
             Usage::create([
                 'statuses_id' => 1,
                 'users_id' => $users_id[$i],
                 'devices_id' => $devices_id[$i],
+                'number' => $number[$i],
                 'days' => $days[$i]
             ]);
         }

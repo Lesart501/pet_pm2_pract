@@ -19,5 +19,5 @@ class Usage extends Model
         return $this->belongsTo(Device::class, 'devices_id', 'id');
     }
 
-    protected $fillable = ['statuses_id', 'users_id', 'devices_id', 'days'];
+    protected $fillable = ['statuses_id', 'users_id', 'devices_id', 'number', 'days'];
 }

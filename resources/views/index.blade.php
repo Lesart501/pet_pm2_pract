@@ -24,10 +24,10 @@
                             <p class="card-text">{{$device->description}}</p>
                             <p class="card-text text-primary fs-4">Всего: {{$device->number}}</p>
                             @guest
-                            <a href="{{ route('login') }}" class="btn btn-primary">Использовать</a>
+                            <a href="{{ route('login') }}" class="btn btn-warning">Использовать</a>
                             @endguest
                             @auth
-                            <a href="{{ route('book.form', ['tour' => $tour->id]) }}" class="btn btn-primary">Использовать</a>
+                            <a href="{{ route('book.form', ['device' => $device->id]) }}" class="btn btn-warning">Использовать</a>
                             @endauth
                         </div>
                     </div>

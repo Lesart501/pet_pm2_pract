@@ -25,7 +25,7 @@
                     @auth
                     <form action="{{ route('logout') }}" method="POST" class="form-inline">
                         @csrf
-                        <input type="submit" class="btn btn-primary" value="Выйти">
+                        <input type="submit" class="btn btn-dark text-warning" value="Выйти">
                     </form>
                     @endauth
                 </div>

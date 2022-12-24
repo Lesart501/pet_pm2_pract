@@ -20,4 +20,7 @@ Route::get('/', [MainController::class, 'index'])->name('index');
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/home/{device}/book', [HomeController::class, 'bookForm'])->name('book.form');
+Route::post('/home/{device}', [HomeController::class, 'book'])->name('book');

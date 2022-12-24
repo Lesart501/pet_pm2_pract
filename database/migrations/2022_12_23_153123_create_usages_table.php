@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('statuses_id')->constrained('statuses','id')->cascadeOnDelete();
             $table->foreignId('users_id')->constrained('users','id')->cascadeOnDelete();
             $table->foreignId('devices_id')->constrained('devices','id')->cascadeOnDelete();
-            $table->integer('days');
+            $table->integer('number')->default(1);
+            $table->integer('days')->default(1);
             $table->timestamps();
         });
     }

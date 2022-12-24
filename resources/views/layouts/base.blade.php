@@ -14,8 +14,18 @@
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    @guest
                     <li><a href="{{ route('index') }}" class="nav-link px-2 text-dark fw-bold">Главная</a></li>
-                    @auth<li><a href="{{ route('home') }}" class="nav-link px-2 text-dark">Личный кабинет</a></li>@endauth
+                    @endguest
+                    @auth
+                    @if(!Auth::user()->is_admin)
+                    <li><a href="{{ route('index') }}" class="nav-link px-2 text-dark fw-bold">Главная</a></li>
+                    <li><a href="{{ route('home') }}" class="nav-link px-2 text-dark">Личный кабинет</a></li>
+                    @elseif(Auth::user()->is_admin)
+                    <li><a href="{{ route('admin') }}" class="nav-link px-2 text-dark fw-bold">Инвентаризация</a></li>
+                    <li><a href="{{ route('admin') }}" class="nav-link px-2 text-dark">Заявки на эксплуатацию</a></li>
+                    @endif
+                    @endauth
                 </ul>
                 <div class="text-end">
                     @guest

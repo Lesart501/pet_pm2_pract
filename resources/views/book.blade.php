@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('title', 'Бронирование тура')
+@section('title', 'Заявка на использование оборудования')
 
 @section('content')
     <div class="container-xxl d-flex justify-content-evenly my-5 booking text-warning">

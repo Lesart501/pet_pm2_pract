@@ -29,4 +29,12 @@ Route::post('/home/{device}', [HomeController::class, 'book'])->name('book');
 Route::middleware(['admin'])->group(function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     
+    Route::get('/admin/add/form', [AdminController::class, 'addDeviceForm'])->name('device.add');
+    Route::post('/admin/add', [AdminController::class, 'saveDevice'])->name('device.save');
+    
+    Route::get('/admin/{device}/edit/form', [AdminController::class, 'editDeviceForm'])->name('device.edit');
+    Route::patch('/admin/{device}/edit', [AdminController::class, 'updateDevice'])->name('device.update');
+    
+    Route::get('/admin/{device}/delete', [AdminController::class, 'deleteDeviceForm'])->name('device.delete');
+    Route::post('/admin/{device}', [AdminController::class, 'destroyDevice'])->name('device.destroy');
 });

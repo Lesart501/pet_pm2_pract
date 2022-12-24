@@ -1,10 +1,10 @@
 @extends('layouts.base')
 
-@section('title', 'Редактирование туров')
+@section('title', 'Инвентаризация')
 
 @section('content')
     <div class="container">
-        <a href="{{ route('admin') }}" class="btn btn-warning m-5">+ Добавить тур</a>
+        <a href="{{ route('device.add') }}" class="btn btn-warning m-5">+ Добавить оборудование</a>
     </div>
 
     <section class="tours text-center mb-5">
@@ -18,8 +18,8 @@
                             <p class="card-text text-secondary">Категория: {{$device->category->name}}</p>
                             <p class="card-text">{{$device->description}}</p>
                             <p class="card-text text-primary fs-4">Всего: {{$device->number}}</p>
-                            <a href="{{ route('admin', ['device' => $device->id]) }}" class="btn btn-warning">Редактировать</a>
-                            <a href="{{ route('admin', ['device' => $device->id]) }}" class="btn btn-danger">Удалить</a>
+                            <a href="{{ route('device.edit', ['device' => $device->id]) }}" class="btn btn-warning">Редактировать</a>
+                            <a href="{{ route('device.delete', ['device' => $device->id]) }}" class="btn btn-danger">Списать</a>
                         </div>
                     </div>
                 @endforeach

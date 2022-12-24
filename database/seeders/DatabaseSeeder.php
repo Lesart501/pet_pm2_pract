@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $statusNames = ['В обработке', 'В эксплуатации', 'Отказано'];
+        $statusNames = ['На рассмотрении', 'В эксплуатации', 'Возвращено', 'Отказано'];
         for ($i = 0; $i < count($statusNames); $i++){
             Status::create([
                 'name' => $statusNames[$i]

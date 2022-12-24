@@ -37,4 +37,9 @@ Route::middleware(['admin'])->group(function(){
     
     Route::get('/admin/{device}/delete', [AdminController::class, 'deleteDeviceForm'])->name('device.delete');
     Route::post('/admin/{device}', [AdminController::class, 'destroyDevice'])->name('device.destroy');
+    
+    Route::get('/usage', [AdminController::class, 'usage'])->name('usage');
+
+    Route::get('/usage/{usage}/change', [AdminController::class, 'chStatusForm'])->name('status.change');
+    Route::patch('/usage/{usage}', [AdminController::class, 'saveStatus'])->name('status.save');
 });

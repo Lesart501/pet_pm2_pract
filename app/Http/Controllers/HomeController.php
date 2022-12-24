@@ -11,11 +11,15 @@ class HomeController extends Controller
 {
     
     private const BOOK_VALIDATOR = [
-        'number' => 'required|numeric',
+        'ammount' => 'numeric',
+        'number' => 'required|numeric|gt:0|lte:ammount',
         'days' => 'required|numeric'];
+
     private const ERROR_MESSAGES = [
         'required' => 'Заполните это поле',
-        'numeric' => 'Введите число'];
+        'numeric' => 'Введите число',
+        'gt' => 'Отсутствие оборудования оборудованием не считается',
+        'lte' => 'Нельзя брать больше техники, чем имеется'];
 
     /**
      * Create a new controller instance.

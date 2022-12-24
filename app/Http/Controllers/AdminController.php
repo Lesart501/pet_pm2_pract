@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Device;
+use App\Models\Usage;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -74,5 +76,21 @@ class AdminController extends Controller
     public function destroyDevice(Request $request, Device $device){
         $device->delete();
         return redirect()->route('admin');
+    }
+    
+    public function usage()
+    {
+        $context = ['usages' => Usage::latest()->get()];
+        return view('usage', $context);
+    }
+    
+    public function chStatusForm(Usage $usage) {
+        $context = ['usage' => $usage, 'statuses' => Status::get()];
+        return view('status_change', $context);
+    }
+    public function saveStatus(Request $request, Usage $usage) {
+        $usage->fill(['statuses_id' => $request->status]);
+        $usage->save();
+        return redirect()->route('usage');
     }
 }

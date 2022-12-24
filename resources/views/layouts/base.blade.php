@@ -15,28 +15,28 @@
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     @guest
-                    <li><a href="{{ route('index') }}" class="nav-link px-2 text-dark fw-bold">Главная</a></li>
+                        <li><a href="{{ route('index') }}" class="nav-link px-2 text-dark fw-bold">Главная</a></li>
                     @endguest
                     @auth
-                    @if(!Auth::user()->is_admin)
-                    <li><a href="{{ route('index') }}" class="nav-link px-2 text-dark fw-bold">Главная</a></li>
-                    <li><a href="{{ route('home') }}" class="nav-link px-2 text-dark">Личный кабинет</a></li>
-                    @elseif(Auth::user()->is_admin)
-                    <li><a href="{{ route('admin') }}" class="nav-link px-2 text-dark fw-bold">Инвентаризация</a></li>
-                    <li><a href="{{ route('admin') }}" class="nav-link px-2 text-dark">Заявки на эксплуатацию</a></li>
-                    @endif
+                        @if(!Auth::user()->is_admin)
+                            <li><a href="{{ route('index') }}" class="nav-link px-2 text-dark fw-bold">Главная</a></li>
+                            <li><a href="{{ route('home') }}" class="nav-link px-2 text-dark">Личный кабинет</a></li>
+                        @elseif(Auth::user()->is_admin)
+                            <li><a href="{{ route('admin') }}" class="nav-link px-2 text-dark fw-bold">Инвентаризация</a></li>
+                            <li><a href="{{ route('usage') }}" class="nav-link px-2 text-dark">Запросы на использование</a></li>
+                        @endif
                     @endauth
                 </ul>
                 <div class="text-end">
                     @guest
-                    <a href="{{ route('login') }}" class="btn btn-dark me-2">Войти</a>
-                    <a href="{{ route('register') }}" class="btn btn-outline-dark">Регистрация</a>
+                        <a href="{{ route('login') }}" class="btn btn-dark me-2">Войти</a>
+                        <a href="{{ route('register') }}" class="btn btn-outline-dark">Регистрация</a>
                     @endguest
                     @auth
-                    <form action="{{ route('logout') }}" method="POST" class="form-inline">
-                        @csrf
-                        <input type="submit" class="btn btn-dark text-warning" value="Выйти">
-                    </form>
+                        <form action="{{ route('logout') }}" method="POST" class="form-inline">
+                            @csrf
+                            <input type="submit" class="btn btn-dark text-warning" value="Выйти">
+                        </form>
                     @endauth
                 </div>
             </div>
